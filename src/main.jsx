@@ -6,6 +6,7 @@ import { createBrowserRouter } from 'react-router';
 import RootLayout from './layout/RootLayout';
 import TimeLines from './Pages/Timelines/TimeLines';
 import Stats from './Pages/Stats/Stats';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         element: <Stats />
       },
     ],
-    errorElement: "Page not found 404"
+    errorElement: <NotFoundPage />
   },
 ]);
 
