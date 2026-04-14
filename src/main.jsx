@@ -7,6 +7,7 @@ import RootLayout from './layout/RootLayout';
 import TimeLines from './Pages/Timelines/TimeLines';
 import Stats from './Pages/Stats/Stats';
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
+import HomePage from './Pages/Homepage/HomePage';
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: 'Homepage',
+        element: <HomePage />,
       },
       {
         path: '/timeline',
