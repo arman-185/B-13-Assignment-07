@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='bg-gray-50 py-16 px-4 text-center'>
+        <div className='bg-gray-100 py-16 px-4 text-center'>
        
             <h1 className='text-4xl font-bold text-gray-800 mb-3'>
                 Friends to keep close in your life

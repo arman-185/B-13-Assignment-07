@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { ClimbingBoxLoader, HashLoader } from 'react-spinners';
+import useFriends from '../../hooks/useFriends';
 
 const statusStyle = (status) => {
     if (status === 'on-track') return 'bg-[#2d4a3e] text-white';
@@ -15,25 +16,17 @@ const statusLabel = (status) => {
 };
 
 const YourFriends = () => {
-    const [friends, setFriends] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch("/data.json")
-            const data = await res.json();
-            console.log(data);
-            setFriends(data);
-        }
-        fetchData();
-    }, [])
 
-    console.log(friends, "friends")
+    const {friends, loading} = useFriends();
+    console.log(loading, "loading")
 
     return (
         <div className='px-6 py-8 max-w-5xl mx-auto'>
             <h2 className='font-bold text-2xl text-gray-800 mb-6'>Your Friends</h2>
 
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+            {loading ? <div className='py-30 flex justify-center items-center'><HashLoader color='#244D3F' /> </div>
+            : (<div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
                 {friends.map((friend, ind) => (
                     <div key={ind} className='bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center text-center gap-2'>
                         <img src={friend.picture} alt={friend.name} className='w-20 h-20 rounded-full object-cover' />
@@ -51,7 +44,7 @@ const YourFriends = () => {
                         </span>
                     </div>
                 ))}
-            </div>
+            </div>)}
         </div>
     );
 };
